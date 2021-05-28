@@ -1,0 +1,68 @@
+﻿@model UJTUT.Models.Tutor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tutor Account</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Profile_picture" class="control-label"></label>
+                <input asp-for="Profile_picture" accept="image/*" />
+                <span asp-validation-for="Profile_picture" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="Tutor_name" class="control-label"></label>
+                <input asp-for="Tutor_name" class="form-control" />
+                <span asp-validation-for="Tutor_name" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Modules" class="control-label"></label>
+                <input asp-for="Modules" class="form-control" />
+                <span asp-validation-for="Modules" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bio" class="control-label"></label>
+                <input asp-for="bio" class="form-control" />
+                <span asp-validation-for="bio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cell" class="control-label"></label>
+                <input asp-for="cell" class="form-control" />
+                <span asp-validation-for="cell" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create Tutor Account" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

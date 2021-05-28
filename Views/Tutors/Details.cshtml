@@ -1,0 +1,64 @@
+﻿@model UJTUT.Models.Tutor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tutor</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            PROFILE
+        </dt>
+
+        <dt class="col-sm-10">
+            <img src=@("~/image/"+Model.Profile_picture) asp-append-version="true" width="250px" height="250px" />
+        </dt>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutor_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tutor_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modules)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modules)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.bio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.bio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.cell)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cell)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    |
+    <a asp-action="showsearchform">SEARCH AGAIN</a>
+</div>
