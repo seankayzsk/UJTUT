@@ -20,7 +20,9 @@ namespace UJTUT.Models
         [DisplayName("Profile Picture")]
         public IFormFile Profile_picture { get; set; }
 
+        public string pic_name { get; set; }
         
+
 
         [Required(ErrorMessage ="Please enter Tutor name")]
         [DisplayName("Tutor name")]

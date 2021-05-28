@@ -88,16 +88,16 @@ namespace UJTUT.Controllers
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture")] Tutor tutor)
+        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name")] Tutor tutor)
         {
             if (ModelState.IsValid)
             {
 
                 string wwwRootPath = _hostEnvironment.WebRootPath;
-                string filename1 = Path.GetFileNameWithoutExtension(tutor.Profile_picture.FileName);
+                string filename = Path.GetFileNameWithoutExtension(tutor.Profile_picture.FileName);
                 string extension = Path.GetExtension(tutor.Profile_picture.FileName);
-               // tutor.pic_name = filename1 + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath + "/image/", filename1);
+                tutor.pic_name = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(wwwRootPath + "/image/",tutor.pic_name);
                 using (var Filestream1= new FileStream(path,FileMode.Create))
                 {
                     await tutor.Profile_picture.CopyToAsync(Filestream1);
