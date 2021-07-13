@@ -64,15 +64,40 @@ namespace UJTUT.Controllers
                 return NotFound();
             }
 
+            
             var tutor = await _context.Tutor
-            .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (tutor == null)
             {
                 return NotFound();
             }
+            ViewBag.ArticleId = id.Value;
+
+            var comments = _context.ArticlesCommentss.Where(d => d.ArticleID.Equals(id.Value)).ToList();
+            ViewBag.Comments = comments;
+
+            var ratings = _context.ArticlesCommentss.Where(d => d.ArticleID.Equals(id.Value)).ToList();
+            if (ratings.Count() > 0)
+            {
+                var ratingSum = ratings.Sum(d => d.Rating.Value);
+                ViewBag.RatingSum = ratingSum;
+                var ratingCount = ratings.Count();
+                ViewBag.RatingCount = ratingCount;
+            }
+            else
+            {
+                ViewBag.RatingSum = 0;
+                ViewBag.RatingCount = 0;
+            }
+
+
 
             return View(tutor);
         }
+
+
+
+
 
         // GET: Tutors/Create
         [Authorize]
@@ -88,7 +113,7 @@ namespace UJTUT.Controllers
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name")] Tutor tutor)
+        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name,Campus")] Tutor tutor)
         {
             if (ModelState.IsValid)
             {
@@ -136,7 +161,7 @@ namespace UJTUT.Controllers
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Profile_picture,Modules,bio,cell,email,price")] Tutor tutor)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Profile_picture,Modules,bio,cell,email,price,Campus")] Tutor tutor)
         {
             if (id != tutor.id)
             {

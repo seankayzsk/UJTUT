@@ -59,11 +59,12 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  background-color:orange
-      
-   
+    /* Margin bottom by footer height */
+    background-image: url("../StylingImages/pex.jpg");
+    /* background-color:orangered;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 60px;
 }
 .footer {
   position: absolute;

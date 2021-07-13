@@ -1,0 +1,81 @@
+﻿<dl class="dl-horizontal">
+    <dt>
+        Feel free to rate this tutor and leave a review
+    </dt>
+
+    <dd>
+        <div class="commentBox">
+            @using (Html.BeginForm("Add", "ArticlesComments", FormMethod.Post, new { onsubmit = "return SubmitComment()" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            <span style="color:red" ;><b>This information will help other students who are also considering this tutor</b></span>
+                        </label>
+                        <div class="col-md-7">
+                            <div onmouseout="CRateSelected()">
+                                <span class="starFade" id="Rate1" onclick="CRate(1)" onmouseover="CRateOver(1)" onmouseout="CRateOut(1)"></span><span class="starFade" id="Rate2" onclick="CRate(2)" onmouseover="CRateOver(2)" onmouseout="CRateOut(2)"></span><span class="starFade" id="Rate3" onclick="CRate(3)" onmouseover="CRateOver(3)" onmouseout="CRateOut(3)"></span><span class="starFade" id="Rate4" onclick="CRate(4)" onmouseover="CRateOver(4)" onmouseout="CRateOut(4)"></span><span class="starFade" id="Rate5" onclick="CRate(5)" onmouseover="CRateOver(5)" onmouseout="CRateOut(5)"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <textarea name="Comment" id="Comment" required rows="5" style="width:50%;" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="hidden" name="ArticleID" value="@ViewBag.ArticleID" />
+                            <input type="hidden" name="Rating" id="Rating" value="0" />
+                            <input type="submit" id="btnRegister" name="btnRegister" value="Submit Comment" class="btn btn-warning" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </dd>
+
+</dl>
+<script>
+    function SubmitComment() {
+        if ($("#Rating").val() == "0") {
+            alert("Please kindly rate this Tutor too .");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+
+    function CRate(r) {
+        $("#Rating").val(r);
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+        // unselect remaining
+        for (var i = r + 1; i <= 5; i++) {
+            $("#Rate" + i).attr('class', 'starFade');
+        }
+    }
+
+    function CRateOver(r) {
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+    }
+
+    function CRateOut(r) {
+        for (var i = 1; i <= r; i++) {
+            $("#Rate" + i).attr('class', 'starFade');
+        }
+    }
+
+    function CRateSelected() {
+        var setRating = $("#Rating").val();
+        for (var i = 1; i <= setRating; i++) {
+            $("#Rate" + i).attr('class', 'starGlow');
+        }
+    }
+</script>

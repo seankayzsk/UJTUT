@@ -14,5 +14,6 @@ namespace UJTUT.Data
         {
         }
         public DbSet<UJTUT.Models.Tutor> Tutor { get; set; }
+        public DbSet<ArticlesComment> ArticlesCommentss { get; set; }
     }
 }

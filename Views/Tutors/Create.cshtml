@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create Tutor Account</h1>
 
-<h4>Tutor Account</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,7 +20,7 @@
             </div>
 
 
-         
+
 
             <div class="form-group">
 
@@ -35,6 +35,22 @@
                 <input asp-for="Modules" class="form-control" />
                 <span asp-validation-for="Modules" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Campus" class="control-label"></label>
+                
+
+                <select id="select1" asp-for="Campus">
+                    <option selected disabled>-- Select Campus --</option>
+                    <option>APK</option>
+                    <option>APB</option>
+                    <option>Soweto</option>
+                    <option>DFC</option>
+                </select>
+
+                <span asp-validation-for="Campus" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="bio" class="control-label"></label>
                 <input asp-for="bio" class="form-control" />
