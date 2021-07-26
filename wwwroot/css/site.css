@@ -73,3 +73,60 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+/* Override the default bootstrap behavior where horizontal description lists
+       will truncate terms that are too long to fit in the left column
+    */
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 360px;
+}
+
+.ratingStar:hover {
+    background-color: yellow;
+}
+
+
+
+.commentBox {
+    border-style: none;
+    border-width: 10px;
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.starFade {
+    background-image: url("../pix/StarFade.gif");
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.starFadeN {
+    background-image: url("../pix/StarFade.gif");
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+}
+
+.starGlow {
+    background-image: url("../pix/StarGlow.gif");
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.starGlowN {
+    background-image: url("../pix/StarGlow.gif");
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+}

@@ -1,5 +1,4 @@
 ﻿@model UJTUT.Models.Tutor
-
 @{
     ViewData["Title"] = "Details";
     var comments = (IEnumerable<UJTUT.Models.ArticlesComment>)ViewBag.Comments;
@@ -12,14 +11,17 @@
         rating = (ratingSum / ratingCount);
     }
     var totalRating = decimal.Parse(rating.ToString());
+
 }
+
+
 
 <h1>Details</h1>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="site.css">
-<div>
+@*<div>
     <span class="starFadeN" id="sRate1"></span><span class="starFadeN" id="sRate2"></span><span class="starFadeN" id="sRate3"></span><span class="starFadeN" id="sRate4"></span><span class="starFadeN" id="sRate5"></span>
-</div>
+</div>*@
 
 <div>
     <h4>Tutor</h4>
@@ -43,6 +45,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Modules)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Campus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Campus)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.bio)
@@ -75,7 +83,7 @@
 
 
 <dt class="col-sm-2">
-    Reviews and Ratings
+    Reviews
 </dt>
 @foreach (var c in comments)
 {
@@ -113,67 +121,11 @@
         SCRate();
     });
 </script>
-<style>
-    /* Override the default bootstrap behavior where horizontal description lists
-       will truncate terms that are too long to fit in the left column
-    */
-    .dl-horizontal dt {
-        white-space: normal;
-    }
 
-    /* Set width on the form input elements since they're 100% wide by default */
-    input,
-    select,
-    textarea {
-        max-width: 360px;
-    }
-
-    .ratingStar:hover {
-        background-color: yellow;
-    }
-
-
-
-    .commentBox {
-        border-style: none;
-        border-width: 10px;
-        background-color: #efefef;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    .starFade {
-        background-image: url("../pix/StarFade.gif");
-        min-width: 30px;
-        min-height: 30px;
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .starFadeN {
-        background-image: url("../pix/StarFade.gif");
-        min-width: 30px;
-        min-height: 30px;
-        display: inline-block;
-    }
-
-    .starGlow {
-        background-image: url("../pix/StarGlow.gif");
-        min-width: 30px;
-        min-height: 30px;
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .starGlowN {
-        background-image: url("../pix/StarGlow.gif");
-        min-width: 30px;
-        min-height: 30px;
-        display: inline-block;
-    }
-</style>
 
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    @*<a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |*@
     <a asp-action="Index">Back to List</a>
 </div>
+
+
