@@ -29,7 +29,18 @@ namespace UJTUT.Controllers
         // GET: Tutors
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Tutor.ToListAsync());
+            //get tutors from db
+            //var tutors =  _context.Tutor.ToList();
+
+            //do a check if tutors are available then display them, if not return view
+            //if (tutors.Count > 0)
+            //{
+            //    return View(tutors);
+            //}
+            //else
+            //{
+                return View();
+            //}
         }
 
         // GET: Tutors/showsearchform

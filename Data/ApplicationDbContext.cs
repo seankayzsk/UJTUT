@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UJTUT.Models;
 
 namespace UJTUT.Data
@@ -13,7 +10,7 @@ namespace UJTUT.Data
             : base(options)
         {
         }
-        public DbSet<UJTUT.Models.Tutor> Tutor { get; set; }
+        public DbSet<Tutor> Tutor { get; set; }
         public DbSet<ArticlesComment> ArticlesCommentss { get; set; }
     }
 }
