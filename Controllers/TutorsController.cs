@@ -68,7 +68,10 @@ namespace UJTUT.Controllers
         // GET: Tutors/showsearchresults
         public async Task<IActionResult> showsearchresults2(string SearchPhrase2)
         {
-            return View("results2", await _context.Tutor.Where(j => j.password.Contains(SearchPhrase2)).ToListAsync());
+            
+            
+            
+            return View("results2", await _context.Tutor.Where(j => j.password.Equals(SearchPhrase2)).ToListAsync());
         }
 
         public IActionResult results2()
