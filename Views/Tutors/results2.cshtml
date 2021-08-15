@@ -1,0 +1,46 @@
+﻿@model IEnumerable<UJTUT.Models.Tutor>
+
+@{
+    ViewData["Title"] = "results2";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutor_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modules)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tutor_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modules)
+                </td>
+
+                <td>
+
+                    <a asp-action="Manage" asp-route-id="@item.id">View Profile</a>
+
+
+
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+
+
+
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>|
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

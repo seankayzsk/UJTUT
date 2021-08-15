@@ -35,7 +35,7 @@ namespace UJTUT.Models
         [DisplayName("Campus")]
         public string Campus { get; set; }
 
-        [DisplayName("Bio")]
+        [DisplayName("Bio2")]
         public string bio { get; set; }
 
         
@@ -46,8 +46,11 @@ namespace UJTUT.Models
         [DisplayName("Email")]
         public string email { get; set; }
 
+        [DisplayName("Password")]
+        public string password { get; set; }
 
-        
+
+
         [DisplayName("Rates per hour")]
         public string price { get; set; }
         public Tutor()

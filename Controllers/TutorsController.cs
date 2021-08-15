@@ -30,17 +30,17 @@ namespace UJTUT.Controllers
         public async Task<IActionResult> Index()
         {
             //get tutors from db
-            //var tutors =  _context.Tutor.ToList();
+            var tutors =  _context.Tutor.ToList();
 
             //do a check if tutors are available then display them, if not return view
-            //if (tutors.Count > 0)
-            //{
-            //    return View(tutors);
-            //}
-            //else
-            //{
+            if (tutors.Count > 0)
+            {
+                return View(tutors);
+            }
+            else
+            {
                 return View();
-            //}
+            }
         }
 
         // GET: Tutors/showsearchform
@@ -59,6 +59,97 @@ namespace UJTUT.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> showsearchform2()
+        {
+            return View();
+        }
+
+        // GET: Tutors/showsearchresults
+        public async Task<IActionResult> showsearchresults2(string SearchPhrase2)
+        {
+            return View("results2", await _context.Tutor.Where(j => j.password.Contains(SearchPhrase2)).ToListAsync());
+        }
+
+        public IActionResult results2()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Manage(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+
+            var tutor = await _context.Tutor
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (tutor == null)
+            {
+                return NotFound();
+            }
+            ViewBag.ArticleId = id.Value;
+
+            var comments = _context.ArticlesCommentss.Where(d => d.ArticleID.Equals(id.Value)).ToList();
+            ViewBag.Comments = comments;
+
+            var ratings = _context.ArticlesCommentss.Where(d => d.ArticleID.Equals(id.Value)).ToList();
+            if (ratings.Count() > 0)
+            {
+                var ratingSum = ratings.Sum(d => d.Rating.Value);
+                ViewBag.RatingSum = ratingSum;
+                var ratingCount = ratings.Count();
+                ViewBag.RatingCount = ratingCount;
+            }
+            else
+            {
+                ViewBag.RatingSum = 0;
+                ViewBag.RatingCount = 0;
+            }
+
+
+
+            return View(tutor);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -124,7 +215,7 @@ namespace UJTUT.Controllers
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name,Campus")] Tutor tutor)
+        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name,Campus,password")] Tutor tutor)
         {
             if (ModelState.IsValid)
             {
@@ -172,7 +263,7 @@ namespace UJTUT.Controllers
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Profile_picture,Modules,bio,cell,email,price,Campus")] Tutor tutor)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Profile_picture,Modules,bio,cell,email,price,Campus,password")] Tutor tutor)
         {
             if (id != tutor.id)
             {
