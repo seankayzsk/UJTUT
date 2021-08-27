@@ -27,10 +27,29 @@ namespace UJTUT.Controllers
 
 
         // GET: Tutors
+       // public async Task<IActionResult> Index()
+        //{
+            //get tutors from db
+          //  var tutors =  _context.Tutor.ToList();
+
+            //do a check if tutors are available then display them, if not return view
+            //if (tutors.Count > 0)
+           // {
+             //   return View(tutors);
+            //}
+            //else
+            //{
+              //  return View();
+            //}
+        //}
         public async Task<IActionResult> Index()
         {
+            return View();
+        }
+        public async Task<IActionResult> admin()
+        {
             //get tutors from db
-            var tutors =  _context.Tutor.ToList();
+            var tutors = _context.Tutor.ToList();
 
             //do a check if tutors are available then display them, if not return view
             if (tutors.Count > 0)
@@ -42,6 +61,36 @@ namespace UJTUT.Controllers
                 return View();
             }
         }
+
+        
+        public async Task<IActionResult> adminlogin()
+        {
+
+            return View();
+            
+        }
+        public async Task<IActionResult> showsearchresults3(string Password)
+        {
+            string pass = "@Adminuser123";
+            if (Password==pass)
+            {
+                return View("admin", _context.Tutor.ToList());
+
+            }
+            else
+            {
+                return View("empty");
+            }
+        }
+
+
+              
+
+        public async Task<IActionResult> empty()
+        {
+            return View();
+        }
+
 
         // GET: Tutors/showsearchform
         public async Task<IActionResult> showsearchform()
@@ -68,9 +117,6 @@ namespace UJTUT.Controllers
         // GET: Tutors/showsearchresults
         public async Task<IActionResult> showsearchresults2(string SearchPhrase2)
         {
-            
-            
-            
             return View("results2", await _context.Tutor.Where(j => j.password.Equals(SearchPhrase2)).ToListAsync());
         }
 
@@ -205,7 +251,7 @@ namespace UJTUT.Controllers
 
 
         // GET: Tutors/Create
-        [Authorize]
+
         public IActionResult Create()
         {
             return View();
@@ -214,7 +260,7 @@ namespace UJTUT.Controllers
         // POST: Tutors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
+
         [HttpPost]
 
         [ValidateAntiForgeryToken]
@@ -243,7 +289,7 @@ namespace UJTUT.Controllers
         }
 
         // GET: Tutors/Edit/5
-        [Authorize]
+     
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -262,7 +308,7 @@ namespace UJTUT.Controllers
         // POST: Tutors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
+
         [HttpPost]
 
         [ValidateAntiForgeryToken]
@@ -297,7 +343,7 @@ namespace UJTUT.Controllers
         }
 
         // GET: Tutors/Delete/5
-        [Authorize]
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -316,7 +362,7 @@ namespace UJTUT.Controllers
         }
 
         // POST: Tutors/Delete/5
-        [Authorize]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

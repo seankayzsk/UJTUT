@@ -35,7 +35,7 @@ namespace UJTUT.Models
         [DisplayName("Campus")]
         public string Campus { get; set; }
 
-        [DisplayName("Bio2")]
+        [DisplayName("Bio")]
         public string bio { get; set; }
 
         

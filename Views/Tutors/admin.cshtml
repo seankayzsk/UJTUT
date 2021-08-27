@@ -1,17 +1,20 @@
 ﻿@model IEnumerable<UJTUT.Models.Tutor>
 
 @{
-    ViewData["Title"] = "results2";
+    ViewData["Title"] = "admin";
 }
-<h4>Manage your account</h4>
+<h4>
+    Welcome Admin 
+</h4>
+
+<h1>Manage Tutor Accounts</h1>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Tutor_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Modules)
             </th>
 
             <th></th>
@@ -24,16 +27,12 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Tutor_name)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Modules)
-                </td>
 
                 <td>
 
-                    <a asp-action="Details" asp-route-id="@item.id">View your profile</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
                     <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
                     <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-
                 </td>
             </tr>
         }

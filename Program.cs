@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace UJTUT
 {
     public class Program
@@ -15,6 +16,7 @@ namespace UJTUT
         {
             CreateHostBuilder(args).Build().Run();
         }
+
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
