@@ -49,9 +49,13 @@ namespace UJTUT.Models
         [DisplayName("Password")]
         public string password { get; set; }
 
+        [DisplayName("Rate Criterion")]
+        public string RateCriteria { get; set; }
 
 
-        [DisplayName("Rates per hour")]
+
+
+        [DisplayName("Price(ZAR)")]
         public string price { get; set; }
         public Tutor()
         {

@@ -40,7 +40,7 @@ namespace UJTUT
             }
 
             //Automatically perform database migration
-            //services.BuildServiceProvider().GetService<ApplicationDbContext>().Database.Migrate();
+            services.BuildServiceProvider().GetService<ApplicationDbContext>().Database.Migrate();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();

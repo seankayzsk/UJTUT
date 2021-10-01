@@ -264,7 +264,7 @@ namespace UJTUT.Controllers
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name,Campus,password")] Tutor tutor)
+        public async Task<IActionResult> Create([Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name,Campus,RateCriteria,password")] Tutor tutor)
         {
             if (ModelState.IsValid)
             {
@@ -312,7 +312,7 @@ namespace UJTUT.Controllers
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Profile_picture,Modules,bio,cell,email,price,Campus,password")] Tutor tutor)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Profile_picture,pic_name,Modules,bio,cell,email,price,Campus,RateCriteria,password")] Tutor tutor)
         {
             if (id != tutor.id)
             {
