@@ -6,13 +6,16 @@
 
 <h1>Edit</h1>
 
-<h4>Tutor</h4>
+<h4>Tutor Profile</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="id" />
+
+
+
+
             <div class="form-group">
                 <label asp-for="Tutor_name" class="control-label"></label>
                 <input asp-for="Tutor_name" class="form-control" />
@@ -39,20 +42,34 @@
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="password" class="control-label"></label>
-                <input asp-for="password" class="form-control" />
-                <span asp-validation-for="password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Campus" class="control-label"></label>
-                <input asp-for="Campus" class="form-control" />
+
+
+                <select id="select1" asp-for="Campus">
+                    <option selected disabled>-- Select Campus --</option>
+                    <option>APK</option>
+                    <option>APB</option>
+                    <option>Soweto</option>
+                    <option>DFC</option>
+                </select>
+
                 <span asp-validation-for="Campus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RateCriteria" class="control-label"></label>
-                <input asp-for="RateCriteria" class="form-control" />
+
+
+                <select id="select1" asp-for="RateCriteria">
+                    <option selected disabled>-- Select Rate Criterion --</option>
+                    <option>Rate per Hour</option>
+                    <option>Rate per Day</option>
+                    <option>Rate per Week</option>
+                    <option>Rate per Month</option>
+                </select>
+
                 <span asp-validation-for="RateCriteria" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="price" class="control-label"></label>
                 <input asp-for="price" class="form-control" />

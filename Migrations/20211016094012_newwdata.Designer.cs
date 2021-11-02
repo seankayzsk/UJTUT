@@ -10,14 +10,14 @@ using UJTUT.Data;
 namespace UJTUT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210814113128_newaples")]
-    partial class newaples
+    [Migration("20211016094012_newwdata")]
+    partial class newwdata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.15")
+                .HasAnnotation("ProductVersion", "3.1.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -254,6 +254,9 @@ namespace UJTUT.Migrations
                     b.Property<string>("Modules")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RateCriteria")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Tutor_name")
                         .HasColumnType("nvarchar(max)");
 
@@ -264,6 +267,9 @@ namespace UJTUT.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("pic_name")

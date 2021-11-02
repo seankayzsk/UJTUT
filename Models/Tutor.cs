@@ -18,6 +18,7 @@ namespace UJTUT.Models
         [NotMapped]
         
         [DisplayName("Profile Picture")]
+
         public IFormFile Profile_picture { get; set; }
 
         public string pic_name { get; set; }

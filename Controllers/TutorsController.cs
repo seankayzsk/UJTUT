@@ -197,7 +197,10 @@ namespace UJTUT.Controllers
 
 
 
-
+        public async Task<IActionResult> NotFound1()
+        {
+            return View();
+        }
 
 
 
@@ -292,6 +295,7 @@ namespace UJTUT.Controllers
      
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -309,11 +313,19 @@ namespace UJTUT.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
+
+
+
+
+
+
+
         [HttpPost]
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Profile_picture,pic_name,Modules,bio,cell,email,price,Campus,RateCriteria,password")] Tutor tutor)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Tutor_name,Modules,bio,cell,email,price,Profile_picture,pic_name,Campus,RateCriteria,password")] Tutor tutor)
         {
+
             if (id != tutor.id)
             {
                 return NotFound();
@@ -321,8 +333,12 @@ namespace UJTUT.Controllers
 
             if (ModelState.IsValid)
             {
+
                 try
                 {
+                    
+
+                    var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", tutor.Modules);
                     _context.Update(tutor);
                     await _context.SaveChangesAsync();
                 }

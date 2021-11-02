@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace UJTUT.Migrations
 {
-    public partial class newaples : Migration
+    public partial class newwdata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,6 +75,8 @@ namespace UJTUT.Migrations
                     bio = table.Column<string>(nullable: true),
                     cell = table.Column<string>(nullable: true),
                     email = table.Column<string>(nullable: true),
+                    password = table.Column<string>(nullable: true),
+                    RateCriteria = table.Column<string>(nullable: true),
                     price = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
